@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,9 +92,18 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
-                </li>
+                <?php if (isset($_SESSION['customer_name'])) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Welcome, <?php echo htmlspecialchars($_SESSION['customer_name']); ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/logout.php">Logout</a>
+                    </li>
+                <?php else : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/login.php">Login</a>
+                    </li>
+                <?php endif; ?>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Services</a>
                 </li>
@@ -148,8 +161,8 @@
                 <p>Shops</p>
             </div>
             <div class="col-md-3 stat">
-                <h3>10,000+</h3>
-                <p>Happy Customers</p>
+                <h3>10,000+</< /h3>
+                    <p>Happy Customers</p>
             </div>
             <div class="col-md-3 stat">
                 <h3>50,000+</h3>
