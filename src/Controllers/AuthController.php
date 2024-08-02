@@ -1,8 +1,8 @@
 <?php
 
-namespace Cakery\Controllers;
+namespace EcommerceGroup10\Cakery\Controllers;
 
-use Cakery\Models\Customer;
+use EcommerceGroup10\Cakery\Models\Customer;
 
 class AuthController
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Cakery\Models;
+namespace EcommerceGroup10\Cakery\Models;
 
-use Cakery\Helpers\Database;
+use EcommerceGroup10\Cakery\Helpers\Database;
 use PDO;
 
 class Customer
@@ -39,7 +39,7 @@ class Customer
 
     public function authenticate($email, $password)
     {
-        $customer = $this->getCustomerByEmail($email);
+        $customer = this->getCustomerByEmail($email);
 
         if ($customer && password_verify($password, $customer['Password'])) {
             return $customer;

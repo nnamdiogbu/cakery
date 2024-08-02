@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -101,7 +98,7 @@ session_start();
                     </li>
                 <?php else : ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/login.php">Login</a>
+                        <a class="nav-link" href="login">Login</a>
                     </li>
                 <?php endif; ?>
                 <li class="nav-item">
