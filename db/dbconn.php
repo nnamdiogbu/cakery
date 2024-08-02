@@ -4,10 +4,10 @@ class Database
     private $host = 'localhost';
     private $db_name = 'ecommerce_group_10';
     private $username = 'root';
-    private $password = 'root';
+    private $password = '';
     public $conn;
 
-    public function getConnection()
+    public function getConnection(): PDO
     {
         $this->conn = null;
 

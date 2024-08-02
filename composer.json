@@ -1,0 +1,15 @@
+{
+    "name": "ecommerce_group_10/cakery",
+    "autoload": {
+        "psr-4": {
+            "EcommerceGroup10\\Cakery\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nnamdi Ogbu",
+            "email": "ogbunnamdi@gmail.com"
+        }
+    ],
+    "require": {}
+}
