@@ -19,6 +19,7 @@ class AuthController
             $errors = $this->validateRegistrationInput($_POST);
 
             if (empty($errors)) {
+                echo "here";
                 $result = $this->customer->create([
                     'CustomerName' => $_POST['CustomerName'],
                     'Email' => $_POST['Email'],
@@ -28,7 +29,7 @@ class AuthController
 
                 if ($result) {
                     $_SESSION['success_message'] = "Registration successful. Please log in.";
-                    header("Location: /login");
+                    header("Location: /cakery/login");
                     exit;
                 } else {
                     $errors[] = "An error occurred during registration. Please try again.";
@@ -48,6 +49,7 @@ class AuthController
             $password = $_POST['Password'] ?? '';
 
             $customer = $this->customer->authenticate($email, $password);
+            
 
             if ($customer) {
                 session_start();
@@ -55,7 +57,7 @@ class AuthController
                 $_SESSION['CustomerName'] = $customer['CustomerName'];
                 $_SESSION['Email'] = $customer['Email'];
 
-                header("Location: /home");
+                header("Location: /cakery");
                 exit;
             } else {
                 $error = "Invalid email or password.";
@@ -68,10 +70,9 @@ class AuthController
 
     public function logout()
     {
-        session_start();
         $_SESSION = [];
         session_destroy();
-        header("Location: /");
+        header("Location: /cakery");
         exit;
     }
 

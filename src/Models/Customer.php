@@ -39,7 +39,8 @@ class Customer
 
     public function authenticate($email, $password)
     {
-        $customer = this->getCustomerByEmail($email);
+        echo "email is ".$email;
+        $customer = $this->getCustomerByEmail($email);
 
         if ($customer && password_verify($password, $customer['Password'])) {
             return $customer;
