@@ -9,6 +9,7 @@ $dbConfig = $config['db'];
 
 session_start();
 
+use EcommerceGroup10\Cakery\Controllers\OrderController;
 use EcommerceGroup10\Cakery\Helpers\Database;
 use EcommerceGroup10\Cakery\Helpers\DatabaseInitializer;
 use EcommerceGroup10\Cakery\Controllers\HomeController;
@@ -42,8 +43,15 @@ switch ($request) {
         break;
     case '/logout':
         $controller = new AuthController();
-        $controller->logout();
+        echo $controller->logout();
         break;
+    case '/orders':
+        $controller = new OrderController();
+        echo $controller->orders();
+        break;
+    case '/checkout':
+        $controller = new OrderController();
+        echo $controller->createOrder();
     default:
         http_response_code(404);
         echo '404 - Page Not Found';

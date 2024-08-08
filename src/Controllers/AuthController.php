@@ -2,7 +2,9 @@
 
 namespace EcommerceGroup10\Cakery\Controllers;
 
+use EcommerceGroup10\Cakery\Helpers\ViewHelper;
 use EcommerceGroup10\Cakery\Models\Customer;
+use function EcommerceGroup10\Cakery\Helpers\ViewHelper;
 
 class AuthController
 {
@@ -19,7 +21,6 @@ class AuthController
             $errors = $this->validateRegistrationInput($_POST);
 
             if (empty($errors)) {
-                echo "here";
                 $result = $this->customer->create([
                     'CustomerName' => $_POST['CustomerName'],
                     'Email' => $_POST['Email'],
@@ -36,10 +37,10 @@ class AuthController
                 }
             }
 
-            return $this->renderView('register', ['errors' => $errors]);
+            return ViewHelper::renderView('register', ['errors' => $errors]);
         }
 
-        return $this->renderView('register');
+        return ViewHelper::renderView('register');
     }
 
     public function login()
@@ -61,11 +62,11 @@ class AuthController
                 exit;
             } else {
                 $error = "Invalid email or password.";
-                return $this->renderView('login', ['error' => $error]);
+                return ViewHelper::renderView('login', ['error' => $error]);
             }
         }
 
-        return $this->renderView('login');
+        return ViewHelper::renderView('login');
     }
 
     public function logout()
@@ -107,11 +108,4 @@ class AuthController
         return $errors;
     }
 
-    private function renderView($view, $data = [])
-    {
-        extract($data);
-        ob_start();
-        include __DIR__ . "/../Views/{$view}.php";
-        return ob_get_clean();
-    }
 }

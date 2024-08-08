@@ -60,7 +60,7 @@ class DatabaseInitializer
         $sql = "CREATE TABLE IF NOT EXISTS `Order` (
             OrderId INT AUTO_INCREMENT PRIMARY KEY,
             CustomerId INT NOT NULL,
-            OrderDate DATE NOT NULL,
+            OrderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
             TotalAmount DECIMAL(10, 2) NOT NULL,
             FOREIGN KEY (CustomerId) REFERENCES Customer(CustomerId)
         )";
@@ -72,7 +72,9 @@ class DatabaseInitializer
         $sql = "CREATE TABLE IF NOT EXISTS Cake (
             CakeId INT AUTO_INCREMENT PRIMARY KEY,
             CakeName VARCHAR(255) NOT NULL,
-            Price DECIMAL(10, 2) NOT NULL
+            Price DECIMAL(10, 2) NOT NULL,
+            CakeImage VARCHAR(255) NOT NULL,
+            Featured TINYINT(1) DEFAULT 0
         )";
         $this->db->exec($sql);
     }
@@ -93,7 +95,7 @@ class DatabaseInitializer
     private function isDatabaseInitialized()
     {
         try {
-            $sql = "SELECT COUNT(*) FROM MigrationHistory WHERE MigrationName = 'initialization'";
+            $sql = "SELECT (1) FROM MigrationHistory WHERE MigrationName = 'initialization'";
             $stmt = $this->db->query($sql);
             return $stmt->fetchColumn() > 0;
         } catch (PDOException $e) {

@@ -1,4 +1,6 @@
-
+<?php 
+namespace EcommerceGroup10\Cakery\Views;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,7 +91,8 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <?php if (isset($_SESSION['customer_name'])) : ?>
+                <?php 
+if (isset($_SESSION['customer_name'])) : ?>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Welcome, <?php echo htmlspecialchars($_SESSION['customer_name']); ?></a>
                     </li>
@@ -114,6 +117,7 @@
             <p>Delicious cakes for every occasion. Browse our selection and find your perfect cake today!</p>
             <a href="#" class="btn btn-warning">Explore</a>
         </div>
+
     </div>
 
     <div class="container my-5 cake-instructions">
