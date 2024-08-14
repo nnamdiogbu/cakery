@@ -33,8 +33,8 @@ class Cart
     public function updateQuantity($cartId, $quantity){
         $sql = "UPDATE Cart SET Quantity = :Quantity WHERE CartId = :CartId";
         $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':CartId', $cartId);
-        $stmt->bindParam(':Quantity', $quantity );
+        $stmt->bindParam(':CartId', $cartId);  
+        $stmt->bindParam(':Quantity', $quantity);
         return $stmt->execute();
     }
 
