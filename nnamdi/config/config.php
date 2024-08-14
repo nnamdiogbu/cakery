@@ -10,6 +10,6 @@ return [
     ],
     'app' => [
         'name' => 'Cakery',
-        'url' => 'http://localhost/cakery'
+        'url' => 'http://localhost/cakery',
     ],
 ];

@@ -92,6 +92,19 @@ class DatabaseInitializer
         $this->db->exec($sql);
     }
 
+    private function createCartTable()
+    {
+        $sql = "CREATE TABLE IF NOT EXISTS Cart (
+                CartId INT AUTO_INCREMENT PRIMARY KEY,
+                CustomerId INT NOT NULL,
+                CakeId INT NOT NULL,
+                Quantity INT NOT NULL,
+                FOREIGN KEY (CakeID) REFERENCES Cake(CakeId), 
+                FOREIGN KEY (CustomerId) REFERENCES Customer(CustomerId) 
+            )";
+        $this->db->exec($sql);
+    }
+
     private function isDatabaseInitialized()
     {
         try {
