@@ -7,7 +7,7 @@ class ViewHelper
     {
         extract($data);
         ob_start();
-        $viewPath = APP_ROOT . "/src/Views/{$view}.php";
+        $viewPath = APP_ROOT . "/bhunmi/Views/{$view}.php";
         if (!file_exists($viewPath)) {
             throw new \Exception("View file not found: {$viewPath}");
         }

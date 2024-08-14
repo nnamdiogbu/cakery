@@ -1,5 +1,4 @@
 <?php
-
 namespace EcommerceGroup10\Cakery\Helpers;
 
 use PDO;

@@ -2,18 +2,25 @@
 
 define('APP_ROOT', dirname(__DIR__));
 
-require_once APP_ROOT . '/vendor/autoload.php';
-
-$config = require APP_ROOT . '/config/config.php';
+$config = require APP_ROOT . '/nnamdi/config/config.php';
 $dbConfig = $config['db'];
 
 session_start();
+require_once(APP_ROOT. "/sunny/Helpers/Database.php");
+require_once(APP_ROOT. "/sunny/Helpers/DatabaseInitializer.php");
+require_once(APP_ROOT. "/sunny/Models/Cake.php");
+require_once(APP_ROOT. "/sunny/Models/Orders.php");
+require_once(APP_ROOT. "/sunny/Models/Customer.php");
+require_once(APP_ROOT. "/abhay/Controllers/HomeController.php");
+require_once(APP_ROOT. "/abhay/Controllers/AuthController.php");
+require_once(APP_ROOT. "/nnamdi/Helpers/ViewHelper.php");
 
 use EcommerceGroup10\Cakery\Controllers\OrderController;
-use EcommerceGroup10\Cakery\Helpers\Database;
 use EcommerceGroup10\Cakery\Helpers\DatabaseInitializer;
 use EcommerceGroup10\Cakery\Controllers\HomeController;
 use EcommerceGroup10\Cakery\Controllers\AuthController;
+use EcommerceGroup10\Cakery\Helpers\Database;
+
 Database::init($dbConfig);
 
 $initializer = new DatabaseInitializer();
