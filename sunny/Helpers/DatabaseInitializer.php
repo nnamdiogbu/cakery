@@ -27,7 +27,6 @@ class DatabaseInitializer
             $this->createOrderDetailsTable();
 
             $this->recordMigration('initialization');
-            
         } catch (PDOException $e) {
             echo "Error creating tables: " . $e->getMessage() . "\n";
         }
@@ -70,12 +69,13 @@ class DatabaseInitializer
     private function createCakeTable()
     {
         $sql = "CREATE TABLE IF NOT EXISTS Cake (
-            CakeId INT AUTO_INCREMENT PRIMARY KEY,
-            CakeName VARCHAR(255) NOT NULL,
-            Price DECIMAL(10, 2) NOT NULL,
-            CakeImage VARCHAR(255) NOT NULL,
-            Featured TINYINT(1) DEFAULT 0
-        )";
+    CakeId INT AUTO_INCREMENT PRIMARY KEY,
+    CakeName VARCHAR(255) NOT NULL,
+    Price DECIMAL(10, 2) NOT NULL,
+    CakeImage VARCHAR(255) NOT NULL,
+    Featured TINYINT(1) DEFAULT 0,
+    Description TEXT NOT NULL);
+";
         $this->db->exec($sql);
     }
 
@@ -124,4 +124,3 @@ class DatabaseInitializer
         $stmt->execute();
     }
 }
-

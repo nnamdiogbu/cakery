@@ -9,15 +9,15 @@ $dbConfig = $config['db'];
 define('CSS_URL', $appConfig['url'] . '/bhunmi/css/');
 
 session_start();
-require_once(APP_ROOT. "/sunny/Helpers/Database.php");
-require_once(APP_ROOT. "/sunny/Helpers/DatabaseInitializer.php");
-require_once(APP_ROOT. "/sunny/Models/Cake.php");
-require_once(APP_ROOT. "/sunny/Models/Orders.php");
-require_once(APP_ROOT. "/sunny/Models/Customer.php");
-require_once(APP_ROOT. "/sunny/Models/Cart.php");
-require_once(APP_ROOT. "/abhay/Controllers/HomeController.php");
-require_once(APP_ROOT. "/abhay/Controllers/AuthController.php");
-require_once(APP_ROOT. "/nnamdi/Helpers/ViewHelper.php");
+require_once(APP_ROOT . "/sunny/Helpers/Database.php");
+require_once(APP_ROOT . "/sunny/Helpers/DatabaseInitializer.php");
+require_once(APP_ROOT . "/sunny/Models/Cake.php");
+require_once(APP_ROOT . "/sunny/Models/Orders.php");
+require_once(APP_ROOT . "/sunny/Models/Customer.php");
+require_once(APP_ROOT . "/sunny/Models/Cart.php");
+require_once(APP_ROOT . "/abhay/Controllers/HomeController.php");
+require_once(APP_ROOT . "/abhay/Controllers/AuthController.php");
+require_once(APP_ROOT . "/nnamdi/Helpers/ViewHelper.php");
 
 use EcommerceGroup10\Cakery\Controllers\OrderController;
 use EcommerceGroup10\Cakery\Helpers\DatabaseInitializer;
@@ -51,6 +51,15 @@ switch ($request) {
     case '/register':
         $controller = new AuthController();
         echo $controller->register();
+        break;
+    case '/cake':
+        $controller = new HomeController();
+        echo $controller->getCakes();
+        break;
+    case '/cake-details':
+        $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+        $controller = new HomeController();
+        echo $controller->cakeDetails($id);
         break;
     case '/logout':
         $controller = new AuthController();

@@ -4,14 +4,16 @@
 <head>
     <title>Register</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/cakery/assets/css/styles.css">
+    <style>
+        <?php include_once 'css/index.css'; ?>
+    </style>
 </head>
 
 <body>
 
-    <?php include 'navbar.php'; ?>
+    <?php include 'components/header.php'; ?>
 
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
         <h2>Register</h2>
         <?php if (isset($errors) && !empty($errors)): ?>
             <ul style="color:red;">
@@ -45,9 +47,8 @@
         </form>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    <?php include 'components/footer.php'; ?>
+    <?php include 'scripts/scripts.php'; ?>
 </body>
 
 </html>

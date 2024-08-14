@@ -30,7 +30,7 @@
             <h2 class="text-center mb-4">Cake Making Instructions</h2>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="abhay/images/cake1.jpg" class="img-fluid" alt="Cake 1">
+                    <img src="<?php include 'cakery/abhay/images/cake1.jpg'; ?>" class="img-fluid" alt="Cake 1">
                 </div>
                 <div class="col-md-8">
                     <div class="row">

@@ -40,7 +40,7 @@ class Customer
     public function authenticate($email, $password)
     {
         $customer = $this->getCustomerByEmail($email);
-        if ($customer && password_verify($password, $customer['password'])) {
+        if ($customer && password_verify($password, $customer['Password'])) {
             session_start();
             $_SESSION['customer_name'] = $customer['CustomerName'];
             $_SESSION['customer_email'] = $customer['Email'];

@@ -4,12 +4,14 @@
 <head>
     <title>Login</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./bhumi/Views/Assets/Style.css">
 </head>
+<style>
+    <?php include_once 'css/index.css'; ?>
+</style>
 
 <body>
 
-    <?php include 'navbar.php'; ?>
+    <?php include 'components/header.php'; ?>
 
     <div class="container mt-5">
         <h2>Login</h2>
@@ -29,10 +31,8 @@
         </form>
         <p class="mt-3">Don't have an account? <a href="/cakery/register">Register here</a></p>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    <?php include 'components/footer.php'; ?>
+    <?php include 'scripts/scripts.php'; ?>
 </body>
 
 </html>
