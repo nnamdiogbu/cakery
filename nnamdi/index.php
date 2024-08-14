@@ -14,6 +14,7 @@ require_once(APP_ROOT. "/sunny/Helpers/DatabaseInitializer.php");
 require_once(APP_ROOT. "/sunny/Models/Cake.php");
 require_once(APP_ROOT. "/sunny/Models/Orders.php");
 require_once(APP_ROOT. "/sunny/Models/Customer.php");
+require_once(APP_ROOT. "/sunny/Models/Cart.php");
 require_once(APP_ROOT. "/abhay/Controllers/HomeController.php");
 require_once(APP_ROOT. "/abhay/Controllers/AuthController.php");
 require_once(APP_ROOT. "/nnamdi/Helpers/ViewHelper.php");

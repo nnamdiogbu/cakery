@@ -26,6 +26,10 @@
 
     </div>
 
+<?php for ($cake in $cakes){
+        echo $cake;
+} >
+
     <div class="container my-5 cake-instructions">
         <h2 class="text-center mb-4">Cake Making Instructions</h2>
         <div class="row">
