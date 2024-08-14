@@ -39,10 +39,11 @@ class Customer
 
     public function authenticate($email, $password)
     {
-        echo "email is ".$email;
         $customer = $this->getCustomerByEmail($email);
-
-        if ($customer && password_verify($password, $customer['Password'])) {
+        if ($customer && password_verify($password, $customer['password'])) {
+            session_start();
+            $_SESSION['customer_name'] = $customer['CustomerName'];
+            $_SESSION['customer_email'] = $customer['Email'];
             return $customer;
         }
         return false;

@@ -5,7 +5,7 @@ return [
         'host' => 'localhost',
         'dbname' => 'ecommerce_group_10',
         'username' => 'root',
-        'password' => '',
+        'password' => 'root',
         'charset' => 'utf8mb4'
     ],
     'app' => [

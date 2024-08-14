@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  background-image: url("image/slider1.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 4rem;
+}
+
+.hero p {
+  font-size: 1.5rem;
+}
+
+.stats-section {
+  padding: 2rem 0;
+  background-color: #f8f9fa;
+}
+
+.stats-section .stat {
+  text-align: center;
+  padding: 1rem;
+}
+
+.stats-section .stat h3 {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.stats-section .stat p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+footer {
+  background: #333;
+  color: white;
+  padding: 2rem 0;
+}
+
+footer .footer-links a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+footer .footer-links a:hover {
+  text-decoration: underline;
+}
+
+.contact-map {
+  height: 300px;
+  width: 100%;
+}
