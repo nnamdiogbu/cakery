@@ -14,11 +14,14 @@ class Cart
     }
 
     public function getItems($customerId){
-        $sql = "SELECT * FROM Cart WHERE CustomerId = :CustomerId";
+        $sql = "SELECT Cart.*, Cake.CakeName, Cake.Price 
+                FROM Cart 
+                JOIN Cake ON Cart.CakeId = Cake.CakeId 
+                WHERE Cart.CustomerId = :CustomerId";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':CustomerId', $customerId);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function isItemInCart($customerId, $cakeId){

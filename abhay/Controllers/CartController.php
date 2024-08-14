@@ -24,18 +24,16 @@ class CartController
         if (empty($errors)) {
         $customerId = $_SESSION["CustomerId"];
         $cakeId = $_POST['CakeId'];
-        $quantity = (int) $_POST['Quantity'];
-        if (!$this->cart->isItemInCart()){
-        $result = $this->cart->createItem($customerId, $cakeId, $quantity);
+        if (!$this->cart->isItemInCart($customerId, $cakeId)){
+        $result = $this->cart->createItem($customerId, $cakeId);
 
         if ($result) {
-             $_SESSION['success_message'] = "Cake added to cart";
+             $_SESSION['success_message'] = "Item added to cart";
             } else {
                 $errors[] = "An error occurred while adding this item to cart. Please try again.";
                 return ViewHelper::renderView('home', ['errors' => $errors]);
             }
         }
-            
         $cake = $this->cake->getCakeById($cakeId);
         return ViewHelper::renderView("cake-details", ['cake' => $cake]);
         }
@@ -65,10 +63,12 @@ class CartController
         $result = $this->cart->updateQuantity($cartId, $quantity);
         
         if ($result) {
-             $_SESSION['success_message'] = "Item added to cart";
+             $_SESSION['success_message'] = "Cart updated";
             } else {
                 $errors[] = "An error occurred while adding this item to cart. Please try again.";
+                return ViewHelper::renderView('cart', ['errors' => $errors]);
             }
+            return $this->getCartItems();
         }
 
         return ViewHelper::renderView('cart', ['errors' => $errors]);
@@ -96,7 +96,7 @@ class CartController
         $customerId = $_SESSION["CustomerId"];
         $result = $this->cart->deleteAllItems($customerId);
             if ($result) {
-                $_SESSION['success_message'] = "Item removed from cart";
+                $_SESSION['success_message'] = "Items removed from cart";
             } else {
                 $errors[] = "An error occurred while removing this item from cart. Please try again.";
             }

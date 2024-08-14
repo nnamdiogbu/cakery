@@ -17,8 +17,10 @@ require_once(APP_ROOT . "/sunny/Models/Customer.php");
 require_once(APP_ROOT . "/sunny/Models/Cart.php");
 require_once(APP_ROOT . "/abhay/Controllers/HomeController.php");
 require_once(APP_ROOT . "/abhay/Controllers/AuthController.php");
+require_once(APP_ROOT . "/abhay/Controllers/CartController.php");
 require_once(APP_ROOT . "/nnamdi/Helpers/ViewHelper.php");
 
+use EcommerceGroup10\Cakery\Controllers\CartController;
 use EcommerceGroup10\Cakery\Controllers\OrderController;
 use EcommerceGroup10\Cakery\Helpers\DatabaseInitializer;
 use EcommerceGroup10\Cakery\Controllers\HomeController;
@@ -72,6 +74,26 @@ switch ($request) {
     case '/checkout':
         $controller = new OrderController();
         echo $controller->createOrder();
+    case '/cart':
+        $controller = new CartController();
+        echo $controller->getCartItems();
+        break;
+    case '/add-to-cart':
+        $controller = new CartController();
+        echo $controller->addToCart();
+        break;
+    case '/update-cart-item':
+        $controller = new CartController();
+        echo $controller->updateItemQuantity();
+        break;
+    case '/remove-cart-item':
+        $controller = new CartController();
+        echo $controller->removeItemFromCart();
+        break;
+    case '/clear-cart':
+        $controller = new CartController();
+        echo $controller->clearCart();
+        break;
     default:
         http_response_code(404);
         echo '404 - Page Not Found';

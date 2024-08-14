@@ -34,6 +34,9 @@
                     </li>
                     <?php
                     if (isset($_SESSION['customer_name'])) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart">Cart</a>
+                    </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Welcome, <?php echo htmlspecialchars($_SESSION['customer_name']); ?></a>
                         </li>

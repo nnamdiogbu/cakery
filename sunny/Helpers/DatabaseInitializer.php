@@ -25,6 +25,7 @@ class DatabaseInitializer
             $this->createOrderTable();
             $this->createCakeTable();
             $this->createOrderDetailsTable();
+            $this->createCartTable();
 
             $this->recordMigration('initialization');
         } catch (PDOException $e) {
