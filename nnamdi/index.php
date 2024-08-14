@@ -3,7 +3,10 @@
 define('APP_ROOT', dirname(__DIR__));
 
 $config = require APP_ROOT . '/nnamdi/config/config.php';
+$appConfig = $config['app'];
 $dbConfig = $config['db'];
+
+define('CSS_URL', $appConfig['url'] . '/bhunmi/css/');
 
 session_start();
 require_once(APP_ROOT. "/sunny/Helpers/Database.php");
