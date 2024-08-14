@@ -108,9 +108,9 @@ class DatabaseInitializer
     private function isDatabaseInitialized()
     {
         try {
-            $sql = "SELECT (1) FROM MigrationHistory WHERE MigrationName = 'initialization'";
+            $sql = "SELECT 1 FROM MigrationHistory WHERE MigrationName = 'initialization'";
             $stmt = $this->db->query($sql);
-            return $stmt->fetchColumn() > 0;
+            return $stmt->fetchColumn() !== false;
         } catch (PDOException $e) {
             return false;
         }

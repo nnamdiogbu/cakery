@@ -21,6 +21,15 @@ class Cart
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function isItemInCart($customerId, $cakeId){
+        $sql = "SELECT 1 FROM Cart WHERE CustomerId = :CustomerId AND CakeId = :CakeId";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':CustomerId', $customerId);
+        $stmt->bindParam(':CakeId', $cakeId);
+        $stmt->execute();
+        return $stmt->fetchColumn() !== false;
+}
+
     public function createItem($customerId, $cakeId, $quantity = 1){
         $sql = "INSERT INTO Cart (CustomerId, CakeId, Quantity) VALUES (:CustomerId, :CakeId, :Quantity)";
         $stmt = $this->db->prepare($sql);

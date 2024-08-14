@@ -2,34 +2,45 @@
 namespace EcommerceGroup10\Cakery\Controllers;
 
 use EcommerceGroup10\Cakery\Helpers\ViewHelper;
+use EcommerceGroup10\Cakery\Models\Cake;
 use EcommerceGroup10\Cakery\Models\Cart;
 use function EcommerceGroup10\Cakery\Helpers\ViewHelper;
 
 class CartController
 {
     private $cart;
+    private $cake;
 
     public function __construct()
     {
         $this->cart = new Cart();
+        $this->cake = new Cake();
     }
 
     public function addToCart(){
         $errors = $this->validateCartInput($_POST);
+        
 
         if (empty($errors)) {
         $customerId = $_SESSION["CustomerId"];
         $cakeId = $_POST['CakeId'];
         $quantity = (int) $_POST['Quantity'];
+        if (!$this->cart->isItemInCart()){
         $result = $this->cart->createItem($customerId, $cakeId, $quantity);
-        
+
         if ($result) {
              $_SESSION['success_message'] = "Cake added to cart";
-             exit;
             } else {
                 $errors[] = "An error occurred while adding this item to cart. Please try again.";
+                return ViewHelper::renderView('home', ['errors' => $errors]);
             }
         }
+            
+        $cake = $this->cake->getCakeById($cakeId);
+        return ViewHelper::renderView("cake-details", ['cake' => $cake]);
+        }
+
+        return ViewHelper::renderView('home', ['errors' => $errors]);
     }
 
     public function getCartItems(){
