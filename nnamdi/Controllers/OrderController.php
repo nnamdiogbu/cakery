@@ -104,9 +104,8 @@ class OrderController
             try {
                 $tax = $subTotal * $this->taxRate;
                 $total = $subTotal + $tax;
-                $orderId = $this->order->createOrder($customerId, $total, $preparedOrderDetails);
-                $order = $this->order->getOrderById($orderId); 
-                return ViewHelper::renderView("order-confirmation", ['order' => $order ]); 
+                $this->order->createOrder($customerId, $total, $preparedOrderDetails);
+                return ViewHelper::renderView("order-confirmation"); 
             } catch (PDOException $e) {
                 echo "Failed to create order: " . $e->getMessage();
             }

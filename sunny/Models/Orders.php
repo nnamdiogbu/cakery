@@ -53,6 +53,7 @@ class Orders
             JOIN OrderDetails od ON o.OrderId = od.OrderId
             JOIN Cake c ON od.CakeId = c.CakeId
             WHERE o.CustomerId = :CustomerId
+            ORDER BY o.OrderDate DESC
         ";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':CustomerId', $customerId);

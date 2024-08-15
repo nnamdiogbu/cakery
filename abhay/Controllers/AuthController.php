@@ -46,8 +46,14 @@ class AuthController
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['Email'] ?? '';
-            $password = $_POST['Password'] ?? '';
+            $errors = $this->validateLoginInput($_POST);
+            
+            if (!empty($errors)){
+                return ViewHelper::renderView('login', ['errors' => $errors]);
+            }
+
+            $email = $_POST['Email'];
+            $password = $_POST['Password'];
 
             $customer = $this->customer->authenticate($email, $password);
             
@@ -61,8 +67,8 @@ class AuthController
                 header("Location: /cakery");
                 exit;
             } else {
-                $error = "Invalid email or password.";
-                return ViewHelper::renderView('login', ['error' => $error]);
+                $errors[] = "Invalid email or password.";
+                return ViewHelper::renderView('login', ['errors' => $errors]);
             }
         }
 
@@ -93,6 +99,8 @@ class AuthController
 
         if (empty($data['PhoneNumber'])) {
             $errors[] = "Phone number is required.";
+        } elseif (!preg_match('/^\d{10}$/', $data['PhoneNumber'])) {
+            $errors[] = "Phone number must be a 10-digit number.";
         }
 
         if (empty($data['Password'])) {
@@ -105,6 +113,26 @@ class AuthController
             $errors[] = "Passwords do not match.";
         }
 
+        return $errors;
+    }
+
+    private function validateLoginInput($data){
+
+        $errors = [];
+
+        if (empty($data['Email'])) {
+            $errors[] = "Email is required.";
+        } elseif (!filter_var($data['Email'], FILTER_VALIDATE_EMAIL)) {
+            $errors[] = "Invalid email format.";
+        }
+
+
+        if (empty($data['Password'])) {
+            $errors[] = "Password is required.";
+        } elseif (strlen($data['Password']) < 8) {
+            $errors[] = "Password must be at least 8 characters long.";
+        }
+        
         return $errors;
     }
 
