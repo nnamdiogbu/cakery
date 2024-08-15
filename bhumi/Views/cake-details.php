@@ -16,7 +16,7 @@ $isLoggedIn = isset($_SESSION['customer_name']);
 
     <?php include 'components/header.php'; ?>
     <div class="container mt-5 mb-5">
-        <?php include 'components/messages.php'; ?>
+    <?php include 'components/messages.php'; ?>
         <?php if ($cake): ?>
             <div class="row">
                 <div class="col-md-6">

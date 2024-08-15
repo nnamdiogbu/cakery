@@ -35,7 +35,7 @@ class OrderController
     {
         $subTotal = $_GET['subtotal'] ?? 0;
         $taxRate = $this->taxRate;
-        $total = $subTotal + $subTotal * $taxRate;
+        $total = $subTotal * $taxRate;
 
         return ViewHelper::renderView("checkout", [
             'subTotal' => $subTotal,
@@ -83,9 +83,9 @@ class OrderController
             }
 
             try {
-                $orderId = $this->order->createOrder($customerId, $totalAmount, $preparedOrderDetails);
-                $order = $this->order->getOrderById($orderId);
-                return ViewHelper::renderView("orderConfirmation", ['order' => $order]);
+                $orderId = $this->order->createOrder($customerId, $totalAmount * $this->taxRate, $preparedOrderDetails);
+                $order = $this->order->getOrderById($orderId); 
+                return ViewHelper::renderView("orderConfirmation", ['order' => $order ]); 
             } catch (PDOException $e) {
                 echo "Failed to create order: " . $e->getMessage();
             }
