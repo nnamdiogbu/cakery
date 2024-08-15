@@ -75,6 +75,11 @@ switch ($request) {
     case '/checkout':
         $controller = new OrderController();
         echo $controller->checkout();
+        break;
+    case '/create-order':
+        $controller = new OrderController();
+        echo $controller->createOrder();
+        break;
     case '/cart':
         $controller = new CartController();
         echo $controller->getCartItems();
