@@ -54,15 +54,14 @@ class OrderController
             $_subTotal = $_POST['subTotal'];
             $_taxRate = $_POST['taxRate'];
             $_total = $_POST['total'];
-            if (!empty($errors))
-            {
+            if (!empty($errors)) {
                 return ViewHelper::renderView("checkout", [
                     'errors' => $errors,
                     'subTotal' => $_subTotal,
                     'taxRate' => $_taxRate,
                     'total' => $_total
                 ]);
-            } 
+            }
 
             $customerId = $_SESSION['CustomerId'];
 
@@ -80,10 +79,10 @@ class OrderController
             }
 
             $subTotal = 0;
-    
+
             $preparedOrderDetails = [];
 
-            foreach ($cartItems as $item){
+            foreach ($cartItems as $item) {
                 $subTotal +=  $item['Price'] * $item['Quantity'];
                 $preparedOrderDetails[] = [
                     'CakeId' => $item['CakeId'],
@@ -106,33 +105,34 @@ class OrderController
                 $total = $subTotal + $tax;
                 $this->order->createOrder($customerId, $total, $preparedOrderDetails);
                 $this->cart->deleteAllItems($customerId);
-                return ViewHelper::renderView("order-confirmation"); 
+                return ViewHelper::renderView("order-confirmation");
             } catch (PDOException $e) {
                 echo "Failed to create order: " . $e->getMessage();
             }
         }
     }
 
-    private function checkoutInputValidation($data){
-    $errors = [];
-    $name = $address = $city = $zip = $cardNumber = $expiryDate = $cvv = '';
+    private function checkoutInputValidation($data)
+    {
+        $errors = [];
+        $name = $address = $city = $zip = $cardNumber = $expiryDate = $cvv = '';
 
-    $name = trim($data['name']);
-    $address = trim($data['address']);
-    $city = trim($data['city']);
-    $zip = trim($data['zip']);
-    $cardNumber = trim($data['cardNumber']);
-    $expiryDate = trim($data['expiryDate']);
-    $cvv = trim($data['cvv']);
+        $name = trim($data['name']);
+        $address = trim($data['address']);
+        $city = trim($data['city']);
+        $zip = trim($data['zip']);
+        $cardNumber = trim($data['cardNumber']);
+        $expiryDate = trim($data['expiryDate']);
+        $cvv = trim($data['cvv']);
 
-    if (empty($name)) $errors['name'] = 'Name is required';
-    if (empty($address)) $errors['address'] = 'Address is required';
-    if (empty($city)) $errors['city'] = 'City is required';
-    if (empty($zip) || !preg_match('/^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/', $zip)) $errors['zip'] = 'Valid Canadian Postal Code is required';
-    if (empty($cardNumber) || !preg_match('/^\d{16}$/', $cardNumber)) $errors['cardNumber'] = 'Valid Card Number is required';
-    if (empty($expiryDate) || !preg_match('/^\d{2}\/\d{2}$/', $expiryDate)) $errors['expiryDate'] = 'Valid Expiry Date (MM/YY) is required';
-    if (empty($cvv) || !preg_match('/^\d{3}$/', $cvv)) $errors['cvv'] = 'Valid CVV is required';
+        if (empty($name)) $errors['name'] = 'Name is required';
+        if (empty($address)) $errors['address'] = 'Address is required';
+        if (empty($city)) $errors['city'] = 'City is required';
+        if (empty($zip) || !preg_match('/^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/', $zip)) $errors['zip'] = 'Valid Canadian Postal Code is required';
+        if (empty($cardNumber) || !preg_match('/^\d{16}$/', $cardNumber)) $errors['cardNumber'] = 'Valid Card Number is required';
+        if (empty($expiryDate) || !preg_match('/^\d{2}\/\d{2}$/', $expiryDate)) $errors['expiryDate'] = 'Valid Expiry Date (MM/YY) is required';
+        if (empty($cvv) || !preg_match('/^\d{3}$/', $cvv)) $errors['cvv'] = 'Valid CVV is required';
 
-    return $errors;
+        return $errors;
     }
 }
