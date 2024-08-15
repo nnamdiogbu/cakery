@@ -77,7 +77,6 @@ class AuthController
 
     public function logout()
     {
-        $_SESSION = [];
         session_destroy();
         header("Location: /cakery");
         exit;

@@ -14,7 +14,8 @@ class Cake
         $this->db = Database::getInstance()->getConnection();
     }
 
-    public function getAllCakes(){
+    public function getAllCakes()
+    {
         $sql = "SELECT * FROM Cake";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();

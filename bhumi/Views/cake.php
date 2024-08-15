@@ -22,7 +22,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><?php echo htmlspecialchars($cake['CakeName']); ?></h5>
                             <p class="card-text">$<?php echo htmlspecialchars($cake['Price']); ?></p>
-                            <a href="/cakery/cake-details?id=<?php echo htmlspecialchars($cake['CakeId']); ?>" class="btn btn-primary">Details</a>
+                            <a href="/cakery/cake-details?id=<?php echo htmlspecialchars($cake['CakeId']); ?>" class="btn btn-primary">View Cake Details</a>
                         </div>
                     </div>
                 </div>

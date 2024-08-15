@@ -21,7 +21,7 @@
             <div>
                 <h1>Made with Love</h1>
                 <p>Delicious cakes for every occasion. Browse our selection and find your perfect cake today!</p>
-                <a href="#" class="btn btn-warning">Explore</a>
+                <a href="cake" class="btn btn-warning">Explore</a>
             </div>
 
         </div>
@@ -30,8 +30,9 @@
             <h2 class="text-center mb-4">Cake Making Instructions</h2>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="https://images.pexels.com/photos/1702373/pexels-photo-1702373.jpeg" class="img-fluid" alt="Cake 1">
+                    <img src="<?= $imageUrl ?>" class="img-fluid" alt="Cake Image">
                 </div>
+
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-6">

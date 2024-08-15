@@ -14,7 +14,7 @@
 <body>
 
     <?php include 'components/header.php'; ?>
-    
+
     <main class="container mt-4 mb-4">
         <h1 class="mb-4 text-center">You Order History</h1>
 
@@ -25,10 +25,10 @@
         <?php else: ?>
             <?php foreach ($orders as $order): ?>
                 <div class="card custom-card mb-4">
-                <div class="card-header">
-                    <h2 class="h4">Order #<?php echo htmlspecialchars($order['OrderId']); ?></h2>
-                    <p class="mb-0">Date: <?php echo date('F j, Y g:i A', strtotime($order['OrderDate'])); ?></p>
-                </div>
+                    <div class="card-header">
+                        <h2 class="h4">Order #<?php echo htmlspecialchars($order['OrderId']); ?></h2>
+                        <p class="mb-0">Date: <?php echo date('F j, Y g:i A', strtotime($order['OrderDate'])); ?></p>
+                    </div>
                     <div class="card-body">
                         <h3 class="h5 mb-3">Order Details</h3>
                         <table class="table table-striped">
@@ -63,7 +63,7 @@
         <?php endif; ?>
 
         <div class="mt-4 text-center">
-            <a href="/cakery" class="btn btn-primary">Continue Shopping</a>
+            <a href="cake" class="btn btn-primary">Continue Shopping</a>
         </div>
     </main>
 

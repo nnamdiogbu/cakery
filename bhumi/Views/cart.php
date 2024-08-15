@@ -76,7 +76,7 @@
         <?php endif; ?>
 
         <div class="mt-4">
-            <a href="/cakery" class="btn btn-secondary">Continue Shopping</a>
+            <a href="cake" class="btn btn-secondary">Continue Shopping</a>
         </div>
     </main>
 
