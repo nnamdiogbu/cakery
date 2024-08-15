@@ -15,13 +15,7 @@
 
     <div class="container mt-5 mb-5">
         <h2>Register</h2>
-        <?php if (isset($errors) && !empty($errors)): ?>
-            <ul style="color:red;">
-                <?php foreach ($errors as $error): ?>
-                    <li><?php echo $error; ?></li>
-                <?php endforeach; ?>
-            </ul>
-        <?php endif; ?>
+        <?php include 'components/messages.php'; ?>
         <form action="/cakery/register" method="post">
             <div class="form-group">
                 <label for="CustomerName">Name:</label>

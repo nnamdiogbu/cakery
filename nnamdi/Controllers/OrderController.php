@@ -1,4 +1,5 @@
 <?php
+
 namespace EcommerceGroup10\Cakery\Controllers;
 
 
@@ -8,14 +9,17 @@ use EcommerceGroup10\Cakery\Models\Cake;
 
 use PDOException;
 
-class OrderController {
+class OrderController
+{
     private $order;
     private $cake;
+    private $taxRate;
 
     public function __construct()
     {
         $this->order = new Orders();
         $this->cake = new Cake();
+        $this->taxRate = 0.13;
     }
 
     public function orders()
@@ -25,8 +29,20 @@ class OrderController {
             $orders = $this->order->getOrdersByCustomerId($customerId);
             return ViewHelper::renderView('orders', ['orders' => $orders]);
         }
-    } 
+    }
 
+    public function checkout()
+    {
+        $subTotal = $_GET['subtotal'] ?? 0;
+        $taxRate = $this->taxRate;
+        $total = $subTotal + $subTotal * $taxRate;
+
+        return ViewHelper::renderView("checkout", [
+            'subTotal' => $subTotal,
+            'taxRate' => $taxRate,
+            'total' => $total
+        ]);
+    }
     //function not complete & not tested
     public function createOrder()
     {
@@ -47,11 +63,11 @@ class OrderController {
                 if (isset($detail['CakeId']) && isset($detail['Quantity'])) {
                     $cakeId = (int)$detail['CakeId'];
                     $quantity = (int)$detail['Quantity'];
-                    
+
                     $cake = $this->cake->getCakeById($cakeId);
                     if ($cake) {
                         $price = $cake['Price'];
-                        $totalAmount += $price * $quantity;
+                        $totalAmount += $price * $quantity * $this->taxRate;
 
                         $preparedOrderDetails[] = [
                             'CakeId' => $cakeId,
@@ -68,12 +84,11 @@ class OrderController {
 
             try {
                 $orderId = $this->order->createOrder($customerId, $totalAmount, $preparedOrderDetails);
-                $order = $this->order->getOrderById($orderId); 
-                return ViewHelper::renderView("orderConfirmation", ['order' => $order ]); 
+                $order = $this->order->getOrderById($orderId);
+                return ViewHelper::renderView("orderConfirmation", ['order' => $order]);
             } catch (PDOException $e) {
                 echo "Failed to create order: " . $e->getMessage();
             }
         }
     }
 }
-

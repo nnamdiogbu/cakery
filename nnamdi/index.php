@@ -18,6 +18,7 @@ require_once(APP_ROOT . "/sunny/Models/Cart.php");
 require_once(APP_ROOT . "/abhay/Controllers/HomeController.php");
 require_once(APP_ROOT . "/abhay/Controllers/AuthController.php");
 require_once(APP_ROOT . "/abhay/Controllers/CartController.php");
+require_once(APP_ROOT . "/nnamdi/Controllers/OrderController.php");
 require_once(APP_ROOT . "/nnamdi/Helpers/ViewHelper.php");
 
 use EcommerceGroup10\Cakery\Controllers\CartController;
@@ -73,7 +74,7 @@ switch ($request) {
         break;
     case '/checkout':
         $controller = new OrderController();
-        echo $controller->createOrder();
+        echo $controller->checkout();
     case '/cart':
         $controller = new CartController();
         echo $controller->getCartItems();

@@ -87,6 +87,8 @@ class CartController
             } else {
                 $errors[] = "An error occurred while removing this item from cart. Please try again.";
             }
+            
+            return $this->getCartItems();
         }
         return ViewHelper::renderView('cart', ['errors' => $errors]);
     }

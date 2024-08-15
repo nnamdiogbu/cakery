@@ -15,15 +15,7 @@
 
     <div class="container mt-5">
         <h2>Login</h2>
-        <?php if (isset($error)): ?>
-            <p style="color:red;"><?php echo $error; ?></p>
-        <?php endif; ?>
-    <?php if (isset($_SESSION['success_message'])): ?>
-        <div class="alert alert-success" role="alert">
-            <?php echo $_SESSION['success_message']; ?>
-        </div>
-        <?php unset($_SESSION['success_message']); ?>
-    <?php endif; ?>
+        <?php include 'components/messages.php'; ?>
         <form action="/cakery/login" method="post">
             <div class="form-group">
                 <label for="email">Email:</label>

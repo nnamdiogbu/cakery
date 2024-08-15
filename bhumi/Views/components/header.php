@@ -18,7 +18,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="cakery">
-                <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> <!-- Replace with your logo -->
+                <img src="/abhay/images/Logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> <!-- Replace with your logo -->
                 Group 10 - Cakes
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,9 +34,9 @@
                     </li>
                     <?php
                     if (isset($_SESSION['customer_name'])) : ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart">Cart</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart">Cart</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Welcome, <?php echo htmlspecialchars($_SESSION['customer_name']); ?></a>
                         </li>

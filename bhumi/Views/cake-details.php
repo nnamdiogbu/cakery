@@ -16,6 +16,7 @@ $isLoggedIn = isset($_SESSION['customer_name']);
 
     <?php include 'components/header.php'; ?>
     <div class="container mt-5 mb-5">
+        <?php include 'components/messages.php'; ?>
         <?php if ($cake): ?>
             <div class="row">
                 <div class="col-md-6">
@@ -26,10 +27,10 @@ $isLoggedIn = isset($_SESSION['customer_name']);
                     <h3>Price: $<?php echo htmlspecialchars($cake['Price']); ?></h3>
                     <p>Description: <?php echo htmlspecialchars($cake['Description']); ?></p>
                     <?php if ($isLoggedIn): ?>
-                    <form action="/cakery/add-to-cart" method="POST">
-                        <input type="hidden" name="CakeId" value="<?php echo htmlspecialchars($cake['CakeId']); ?>">
-                        <button class="btn btn-primary" type="submit">Add to Cart</button>
-                    </form>
+                        <form action="/cakery/add-to-cart" method="POST">
+                            <input type="hidden" name="CakeId" value="<?php echo htmlspecialchars($cake['CakeId']); ?>">
+                            <button class="btn btn-primary" type="submit">Add to Cart</button>
+                        </form>
                     <?php else: ?>
                         <a href="login" class="btn btn-primary">Login to Add to Cart</a>
                     <?php endif; ?>
