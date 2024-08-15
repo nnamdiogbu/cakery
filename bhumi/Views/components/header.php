@@ -17,9 +17,8 @@
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="cakery">
-                <img src="Logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> <!-- Replace with your logo -->
-                Cakery
+            <a class="navbar-brand" href="/cakery">
+                <img src="https://images.pexels.com/photos/27794438/pexels-photo-27794438/free-photo-of-cake-logo.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="100" height="100" class="d-inline-block align-top" alt="" loading="lazy">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -27,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="cakery">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/cakery">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cake">Cakes</a>

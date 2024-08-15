@@ -37,18 +37,18 @@ class AuthController
                 }
             }
 
-            return ViewHelper::renderView('register', ['errors' => $errors]);
+            return ViewHelper::renderCustomView('abhay', 'register', ['errors' => $errors]);
         }
 
-        return ViewHelper::renderView('register');
+        return ViewHelper::renderCustomView('abhay', 'register');
     }
 
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors = $this->validateLoginInput($_POST);
-            
-            if (!empty($errors)){
+
+            if (!empty($errors)) {
                 return ViewHelper::renderView('login', ['errors' => $errors]);
             }
 
@@ -56,7 +56,7 @@ class AuthController
             $password = $_POST['Password'];
 
             $customer = $this->customer->authenticate($email, $password);
-            
+
 
             if ($customer) {
                 session_start();
@@ -68,11 +68,11 @@ class AuthController
                 exit;
             } else {
                 $errors[] = "Invalid email or password.";
-                return ViewHelper::renderView('login', ['errors' => $errors]);
+                return ViewHelper::renderCustomView('abhay', 'login', ['errors' => $errors]);
             }
         }
 
-        return ViewHelper::renderView('login');
+        return ViewHelper::renderCustomView('abhay', 'login');
     }
 
     public function logout()
@@ -116,7 +116,8 @@ class AuthController
         return $errors;
     }
 
-    private function validateLoginInput($data){
+    private function validateLoginInput($data)
+    {
 
         $errors = [];
 
@@ -132,8 +133,7 @@ class AuthController
         } elseif (strlen($data['Password']) < 8) {
             $errors[] = "Password must be at least 8 characters long.";
         }
-        
+
         return $errors;
     }
-
 }

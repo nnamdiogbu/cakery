@@ -5,17 +5,17 @@
     <title>Register</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        <?php include_once 'css/index.css'; ?>
+        <?php include_once APP_ROOT . '/bhumi/views/css/index.css'; ?>
     </style>
 </head>
 
 <body>
 
-    <?php include 'components/header.php'; ?>
+    <?php include APP_ROOT . '/bhumi/views/components/header.php'; ?>
 
     <div class="container mt-5 mb-5">
         <h2>Register</h2>
-        <?php include 'components/messages.php'; ?>
+        <?php include APP_ROOT . '/bhumi/views/components/messages.php'; ?>
         <form action="/cakery/register" method="post">
             <div class="form-group">
                 <label for="CustomerName">Name:</label>
@@ -41,8 +41,8 @@
         </form>
     </div>
 
-    <?php include 'components/footer.php'; ?>
-    <?php include 'scripts/scripts.php'; ?>
+    <?php include APP_ROOT . '/bhumi/views/components/footer.php'; ?>
+    <?php include APP_ROOT . '/bhumi/views/scripts/scripts.php'; ?>
 </body>
 
 </html>

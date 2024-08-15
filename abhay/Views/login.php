@@ -6,16 +6,15 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
-    <?php include_once 'css/index.css'; ?>
+    <?php include_once APP_ROOT . '/bhumi/views/css/index.css'; ?>
 </style>
 
 <body>
 
-    <?php include 'components/header.php'; ?>
-
-    <div class="container mt-5">
+    <?php include APP_ROOT . '/bhumi/views/components/header.php'; ?>
+    <div class="container mt-5 mb-5">
         <h2>Login</h2>
-        <?php include 'components/messages.php'; ?>
+        <?php include APP_ROOT . '/bhumi/views/components/messages.php'; ?>
         <form action="/cakery/login" method="post">
             <div class="form-group">
                 <label for="email">Email:</label>
@@ -29,8 +28,8 @@
         </form>
         <p class="mt-3">Don't have an account? <a href="/cakery/register">Register here</a></p>
     </div>
-    <?php include 'components/footer.php'; ?>
-    <?php include 'scripts/scripts.php'; ?>
+    <?php include APP_ROOT . '/bhumi/views/components/footer.php'; ?>
+    <?php include APP_ROOT . '/bhumi/views/scripts/scripts.php'; ?>
 </body>
 
 </html>
