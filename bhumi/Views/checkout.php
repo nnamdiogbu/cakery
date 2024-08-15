@@ -30,8 +30,6 @@ if (!isset($_SESSION['customer_name'])) {
 
                     <h2 class="form-header mb-4">Checkout</h2>
 
-                    <?php include 'components/messages.php'; ?>
-
                     <div class="order-summary mb-4">
                         <h4>Order Summary</h4>
                         <p><strong>Subtotal:</strong> $<?php echo number_format($subTotal, 2); ?></p>
@@ -83,9 +81,9 @@ if (!isset($_SESSION['customer_name'])) {
                             <span class="error-message"><?php echo $errors['cvv'] ?? ''; ?></span>
                         </div>
 
-                        <input type="hidden" id="subTotal" name="subTotal" value=<?php echo $subTotal; ?> />
-                        <input type="hidden" id="taxRate" name="taxRate" value=<?php echo $taxRate; ?> />
-                        <input type="hidden" id="total" name="total" value=<?php echo $total; ?> />
+                        <input type="hidden" id="subTotal" name="subTotal" value=<?php echo htmlspecialchars($subTotal); ?> />
+                        <input type="hidden" id="taxRate" name="taxRate" value=<?php echo htmlspecialchars($taxRate); ?> />
+                        <input type="hidden" id="total" name="total" value=<?php echo htmlspecialchars($total); ?> />
 
                         <button type="submit" class="btn btn-primary btn-block">Place Order</button>
                     </form>
