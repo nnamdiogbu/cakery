@@ -16,11 +16,11 @@ $isLoggedIn = isset($_SESSION['customer_name']);
 
     <?php include 'components/header.php'; ?>
     <div class="container mt-5 mb-5">
-    <?php include 'components/messages.php'; ?>
+        <?php include 'components/messages.php'; ?>
         <?php if ($cake): ?>
             <div class="row">
                 <div class="col-md-6">
-                    <img src="<?php echo htmlspecialchars($cake['CakeImage']); ?>" class="img-fluid" alt="<?php echo htmlspecialchars($cake['CakeName']); ?>">
+                    <img src="<?php echo htmlspecialchars($cake['CakeImage']); ?>" class="img-fluid cake-image" alt="<?php echo htmlspecialchars($cake['CakeName']); ?>">
                 </div>
                 <div class="col-md-6">
                     <h1><?php echo htmlspecialchars($cake['CakeName']); ?></h1>

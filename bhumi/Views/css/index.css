@@ -10,7 +10,12 @@ body {
 }
 
 .hero {
-  background-image: url("/abhay/images/slider1.jpg");
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("https://images.pexels.com/photos/7845536/pexels-photo-7845536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   background-size: cover;
   background-position: center;
   height: 60vh;
@@ -23,12 +28,12 @@ body {
 
 .hero h1 {
   font-size: 4rem;
-  color: var(--primary-color);
+  color: var(--accent-color);
 }
 
 .hero p {
   font-size: 1.5rem;
-  color: var(--secondary-color);
+  color: white;
 }
 
 .stats-section {
@@ -103,4 +108,17 @@ footer .footer-links a:hover {
 
 .form-header {
   color: var(--secondary-color) !important;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.cake-image {
+  max-height: 400px;
+  object-fit: cover;
+  width: 100%;
 }
