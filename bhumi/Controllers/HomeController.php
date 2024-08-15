@@ -8,7 +8,7 @@ use EcommerceGroup10\Cakery\Models\Cake;
 class HomeController
 {
     private $cake;
-    private $pexelsApiKey = '';
+    private $pexelsApiKey = 'jLWn1x0QRN11eI99CCq68eWKnrZTNG5eINDzXfNajQ1fiWNtULGBSqyI';
     private $imageUrl;
 
     public function __construct()
