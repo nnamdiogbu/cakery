@@ -18,8 +18,8 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="cakery">
-                <img src="/abhay/images/Logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> <!-- Replace with your logo -->
-                Group 10 - Cakes
+                <img src="Logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> <!-- Replace with your logo -->
+                Cakery
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

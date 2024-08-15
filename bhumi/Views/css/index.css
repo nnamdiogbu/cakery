@@ -119,6 +119,6 @@ footer .footer-links a:hover {
 
 .cake-image {
   max-height: 400px;
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
 }
